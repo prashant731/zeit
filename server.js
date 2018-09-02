@@ -1,7 +1,12 @@
 var express=require("express");
 var bodyParser=require("body-parser");
-var path    = require("path");
-app=express();
+var path= require("path");
+var app=express();
+app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+var wr=require("./crud/write.js");
+
 app.use(express.static("public"));
 app.get('/',function(req,res){
 
@@ -20,9 +25,18 @@ res.set('Content-Type', 'text/json');
 res.end(JSON.stringify(toSend));
 })
 
-app.post('/addRecord',function(req,res){
+app.post('/addCardEntery',function(req,res){
 var cardId=req.param("cardId");
 res.end({"status":G,"cardId":cardId});
 })
 
+app.post('/addStudent',(req,res)=>{
+var student=req.param("student");
+  var obj={
+    TableName:"StudentDetail",
+    Item:student
+}
+wr.save(obj,res);
+
+})
 app.listen(process.env.PORT || 3000);

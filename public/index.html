@@ -1,5 +1,6 @@
 <html>
 <head>
+
   <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
 <style>
 body {
@@ -20,12 +21,12 @@ color: black!important;
 }
 #major{
   position: fixed;
-  margin-left:30%;
-   background: white;
-   color: #f1f1f1;
-   width: 40%;
-   height:85%;
-   padding: 20px;
+  margin-left:27%;
+  background: white;
+  color: #f1f1f1;
+  width: 45%;
+  height:100%;
+  padding:5px;
 }
 </style>
   <script
@@ -34,9 +35,14 @@ color: black!important;
     crossorigin="anonymous"></script>
     <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js">
+</script>
 
+<script src="./lib/app.js">
+</script>
 </head>
-<body >
+<body ng-app="myApp">
   <!-- The video -->
   <video autoplay muted loop id="myVideo">
     <source src="./img/background_vid.mp4" type="video/mp4">
@@ -46,7 +52,7 @@ color: black!important;
 Form for Student registration
 
 -->
-<nav>
+  <nav>
     <div class="nav-wrapper z-depth-2 pink darken-2" >
       <a href="#" class="brand-logo center"><img src="./img/logo.png"/></a>
         </div>
@@ -55,75 +61,9 @@ Form for Student registration
 <br>
 <div class="row">
 <div class="col s6"></div>
-  <div class="col s8 pin-text z-depth-5 white" id="major">
-    <center><h3 style="color:black">Student Registration</h3></center>
-    <br>  <form class="col s12">
+  <div class="col s8 pin-text z-depth-5 white" id="major" ng-view>
 
-          <div class="row">
-
-          <div class="input-field col s6">
-
-            <input   type="text" class="validate">
-            <label for="first_name">Name</label>
-          </div>
-
-          <div class="input-field col s6">
-            <input  type="text" class="validate">
-            <label for="last_name">Card ID</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s6">
-            <input type="Number" class="validate">
-            <label for="disabled">Contact Number</label>
-          </div>
-          <div class="input-field col s6">
-            <input  type="Number" class="validate">
-            <label for="last_name">Parent Contact Number</label>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="input-field col s4">
-            <select class="browser-default">
-              <option>Course</option>
-
-              <option>GRE</option>
-              <option>GMAT</option>
-              <option>SAT</option>
-              <option>VISA Counselling</option>
-              <option>IELTS</option>
-              <option>TOFEL</option>
-
-            </select>
-
-          </div>
-          <div class="input-field col s4">
-            <input type="number"  class="validate">
-            <label for="password">Amount</label>
-          </div>
-          <div class="input-field col s4">
-            <input  type="number" class="validate">
-            <label for="password">Fee Left</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-        </div>
-        <br><br><br>
-        <center><button class="btn waves-effect btn-large pink darken-2" type="submit" name="action">Submit
-   </center>
- </button>
-    <br>
-      </form>
-
-    </div>
+  </div>
 
 </div>
 
