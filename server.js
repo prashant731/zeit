@@ -5,7 +5,7 @@ var app=express();
 app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-var wr=require("./crud/write.js");
+var dbop=require("./crud/operations.js");
 
 app.use(express.static("public"));
 app.get('/',function(req,res){
@@ -32,11 +32,6 @@ res.end({"status":G,"cardId":cardId});
 
 app.post('/addStudent',(req,res)=>{
 var student=req.param("student");
-  var obj={
-    TableName:"StudentDetail",
-    Item:student
-}
-wr.save(obj,res);
-
+dbop.insert(student,res);
 })
 app.listen(process.env.PORT || 3000);
