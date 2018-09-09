@@ -1,20 +1,15 @@
-<center><h3 style="color:#c2185b">Student Registration</h3></center>
+<center><h4 style="color:#c2185b">Student Registration</h4></center>
 <form class="col s12">
-
-      <div class="row">
-
+<div class="row">
       <div class="input-field col s6">
-
         <input  ng-model="student.Name" type="text" class="validate">
         <label for="first_name" >Name</label>
       </div>
-
       <div class="input-field col s6">
         <input ng-model="student.CardID" type="text" class="validate">
         <label for="last_name">Card ID</label>
       </div>
     </div>
-
     <div class="row">
       <div class="input-field col s6">
         <input ng-model="student.PersonalContact" type="Number" class="validate">
@@ -26,21 +21,16 @@
       </div>
 
     </div>
-
     <div class="row">
       <div class="input-field col s4">
         <select ng-model="student.Course" class="browser-default">
-          <option>Course</option>
-
-          <option>GRE</option>
-          <option>GMAT</option>
-          <option>SAT</option>
-          <option>VISA Counselling</option>
+          <option >GRE</option>
+          <option >GMAT</option>
+          <option >SAT</option>
+          <option >VISA Counselling</option>
           <option>IELTS</option>
           <option>TOFEL</option>
-
         </select>
-
       </div>
       <div class="input-field col s4">
         <input ng-model="student.Amount" type="number"  class="validate">
@@ -67,25 +57,31 @@
           <option>Cash</option>
           <option>Online</option>
           <option>Bank Cheque</option>
-          <option>Wallet</option>
+          <option>E-Wallet</option>
       </select>
       </div>
-
-
-      <div class="input-field col s4">
-        <input  ng-model="student.Remark" type="text" class="validate">
-        <label for="password">Remark</label>
+      <div class="input-field col s4" ng-if="student.Course=='SAT'">
+        <input  ng-model="student.School" type="text" class="validate">
+        <label for="password">School</label>
+      </div>
+      <div class="input-field col s4" ng-if="student.Course!='SAT'">
+        <input  ng-model="student.College" type="text" class="validate">
+        <label for="password">college</label>
       </div>
     </div>
-
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s6">
         <input ng-model="student.Email" id="email" type="email" class="validate">
         <label for="email">Email</label>
+      </div>
+      <div class="input-field col s6">
+        <input ng-model="student.DueDate"  type="text"  class="datepicker" class="validate">
+        <label for="DueDate">Due Date</label>
       </div>
     </div>
   <center><button ng-click="addStudent()" class="btn waves-effect btn-large pink darken-2" type="submit" name="action">Submit
 </button></center>
+<script>
 
-<br>
+</script>
   </form>

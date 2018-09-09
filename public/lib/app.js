@@ -18,11 +18,15 @@ app.config(function($routeProvider) {
         controller : "getAllStudentsCtrl"
     })
     .otherwise({
-       template : "<h1>Error 404!!</h1><p>Resource cannot be located.</p>"
+      template : "<h1 style='color:red'>Error 404!!</h1><p>Resource cannot be located.</p>"
    })
 });
 app.controller("addStudentCtrl", function ($scope,$http) {
 
+  $(document).ready(function(){
+      $('.datepicker').datepicker();
+    });
+      
 $scope.addStudent=function()
 {
 
@@ -32,7 +36,11 @@ $scope.addStudent=function()
           data:{ 'student' : $scope.student}
       })
       .then(function(response) {
-        alert(JSON.stringify(response.data));
+        if(response.data.status)
+        {
+          M.toast({html: 'Student Added!', classes:'rounded pink darken-2'});
+        }
+
           },
       function(error) { // optional
         alert(JSON.stringify(error.data));
@@ -43,6 +51,7 @@ $scope.addStudent=function()
 
 
 app.controller("getStudent", function ($scope) {
+
   $scope.getStudents(std)
   {
       $http({
