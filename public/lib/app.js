@@ -24,9 +24,10 @@ app.config(function($routeProvider) {
 app.controller("addStudentCtrl", function ($scope,$http) {
 
   $(document).ready(function(){
-      $('.datepicker').datepicker();
+      $('.datepicker').datepicker({"format":"dd/mm/yyyy"});
+
     });
-      
+
 $scope.addStudent=function()
 {
 

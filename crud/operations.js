@@ -16,10 +16,28 @@ db.collection('students').save(obj, (err, result) => {
     })
 }
 
-exports.selectAllStudent=function()
+exports.insert=function(obj){
+db.collection('transactions').save(obj, (err, result) => {
+    if (err) throw (err)
+    else
+    {
+      return(true);
+    }
+    })
+}
+
+
+exports.getAllTransactions=(res)=>{
+  db.collection('transactions').find().toArray(function(err, results) {
+     res.send(JSON.stringify(results));
+    })
+}
+
+exports.selectAllStudent=function(res)
 {
+
   db.collection('students').find().toArray(function(err, results) {
-    return (results)
+     res.send(JSON.stringify(results));
     })
 }
 
